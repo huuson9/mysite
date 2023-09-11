@@ -13,7 +13,6 @@ class Genre(models.Model):
         """String for representing the Model object."""
         return self.name
 
-
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200)
@@ -37,8 +36,8 @@ class Book(models.Model):
         return ', '.join(genre.name for genre in self.genre.all()[:3])
     
     display_genre.short_description = 'Genre'
-
-
+    
+    
 class BookInstance(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text=_('Unique ID for this particular bookacross '
